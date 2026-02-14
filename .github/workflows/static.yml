@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./harish-portfolio
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,7 +28,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: './package-lock.json'
+          cache-dependency-path: 'harish-portfolio/package-lock.json'
       - name: Install dependencies
         run: npm ci
       - name: Build
@@ -35,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: 'harish-portfolio/dist'
 
   deploy:
     environment:
