@@ -1,0 +1,58 @@
+============================================
+  HARISH KUMAR — FUNKY RETRO PORTFOLIO
+  Setup & Run Instructions
+============================================
+
+PREREQUISITES:
+--------------
+1. Node.js (v18 or higher) — Download from https://nodejs.org
+2. npm (comes with Node.js)
+
+To check if you have them installed, open a terminal and run:
+  node --version
+  npm --version
+
+
+HOW TO RUN:
+-----------
+1. Unzip the folder
+2. Open a terminal inside the "harish-portfolio" folder
+3. Run these commands one by one:
+
+   npm install
+   npm run dev
+
+4. Open your browser and go to: http://localhost:5173
+5. That's it! Enjoy the funky vibes 🕹️
+
+
+HOW TO BUILD FOR PRODUCTION:
+----------------------------
+   npm run build
+
+This creates a "dist" folder with static files you can host anywhere.
+
+
+HOW TO DEPLOY TO GITHUB PAGES:
+-------------------------------
+1. Create a GitHub repo named "harish-portfolio"
+2. Push the code to the "main" branch
+3. Go to repo Settings → Pages → Source: GitHub Actions
+4. It auto-deploys on every push
+
+
+TECH STACK:
+-----------
+- React 19
+- Vite 7
+- Three.js + React Three Fiber (3D graphics)
+- Framer Motion (animations)
+- tsparticles (particle effects)
+- react-icons
+
+
+TROUBLESHOOTING:
+----------------
+- If "npm install" fails, try deleting the "node_modules" folder and "package-lock.json", then run "npm install" again.
+- If the port 5173 is busy, Vite will pick the next available port — check the terminal output.
+- Make sure you're inside the "harish-portfolio" folder before running commands.
