@@ -3,22 +3,22 @@ import { motion } from 'framer-motion'
 
 const skillCategories = [
   {
-    title: '🌐 WEB DEV',
+    title: 'WEB DEV',
     color: '#00ffff',
     skills: ['React', 'Next.js', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Node.js', 'Three.js']
   },
   {
-    title: '🎮 GAME DEV',
+    title: 'GAME DEV',
     color: '#39ff14',
     skills: ['Unity', 'C#', 'Godot', 'Phaser', 'Game Design', 'Pixel Art', '3D Modeling']
   },
   {
-    title: '📱 ANDROID',
+    title: 'ANDROID',
     color: '#ff00ff',
     skills: ['Kotlin', 'Java', 'Jetpack Compose', 'Firebase', 'Room DB', 'Material Design']
   },
   {
-    title: '🛠️ TOOLS',
+    title: 'TOOLS',
     color: '#ffff00',
     skills: ['Git', 'Docker', 'Figma', 'VS Code', 'Linux', 'AWS', 'MongoDB']
   }
@@ -48,7 +48,7 @@ export default function Skills() {
           letterSpacing: '5px'
         }}
       >
-        SKILL TREE 🌳
+        SKILL TREE
       </motion.h2>
 
       <div style={{

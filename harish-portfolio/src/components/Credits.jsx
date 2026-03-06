@@ -12,7 +12,7 @@ const credits = [
   { role: 'BUG CREATOR', name: 'HARISH KUMAR' },
   { role: 'BUG FIXER', name: 'ALSO HARISH KUMAR' },
   { role: 'SPECIAL THANKS', name: 'STACK OVERFLOW' },
-  { role: 'EMOTIONAL SUPPORT', name: 'COFFEE ☕' },
+  { role: 'EMOTIONAL SUPPORT', name: 'COFFEE' },
   { role: 'EXECUTIVE PRODUCER', name: 'HARISH KUMAR' },
 ]
 
@@ -52,7 +52,7 @@ export default function Credits() {
           letterSpacing: '5px'
         }}
       >
-        🎬 CREDITS 🎬
+        CREDITS
       </motion.h2>
 
       <motion.p

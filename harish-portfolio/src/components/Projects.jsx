@@ -6,7 +6,6 @@ const projects = [
     title: 'NEON RUNNER',
     desc: 'A fast-paced endless runner game with retro neon aesthetics and procedural generation.',
     tags: ['Unity', 'C#', 'Game Design'],
-    emoji: '🏃‍♂️',
     color: '#39ff14',
     type: 'GAME'
   },
@@ -14,7 +13,6 @@ const projects = [
     title: 'PIXEL CHAT',
     desc: 'Real-time messaging app with pixel art avatars and retro UI. Built for the nostalgic.',
     tags: ['React', 'Firebase', 'Node.js'],
-    emoji: '💬',
     color: '#00ffff',
     type: 'WEB APP'
   },
@@ -22,7 +20,6 @@ const projects = [
     title: 'DROID BEATS',
     desc: 'Android music player with visualizer, gesture controls, and AI-powered playlists.',
     tags: ['Kotlin', 'Jetpack Compose', 'ML Kit'],
-    emoji: '🎵',
     color: '#ff00ff',
     type: 'ANDROID'
   },
@@ -30,7 +27,6 @@ const projects = [
     title: 'SPACE TRADER',
     desc: 'Intergalactic trading simulator. Buy low, sell high, dodge pirates. Classic gameplay.',
     tags: ['Godot', 'GDScript', 'Pixel Art'],
-    emoji: '🚀',
     color: '#ffff00',
     type: 'GAME'
   },
@@ -38,7 +34,6 @@ const projects = [
     title: 'RETRO FOLIO',
     desc: 'This very portfolio you are looking at. Meta, right? Built with React + Three.js.',
     tags: ['React', 'Three.js', 'Framer Motion'],
-    emoji: '🎨',
     color: '#ff6600',
     type: 'WEB'
   },
@@ -46,7 +41,6 @@ const projects = [
     title: 'FIT QUEST',
     desc: 'Gamified fitness tracker for Android. Earn XP, level up, defeat the couch boss.',
     tags: ['Kotlin', 'Room DB', 'Material 3'],
-    emoji: '💪',
     color: '#8b00ff',
     type: 'ANDROID'
   }
@@ -76,7 +70,7 @@ export default function Projects() {
           letterSpacing: '5px'
         }}
       >
-        QUEST LOG 📜
+        QUEST LOG
       </motion.h2>
 
       <div style={{

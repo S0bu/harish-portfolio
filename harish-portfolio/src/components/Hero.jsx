@@ -14,8 +14,8 @@ function SpinningLogo() {
       <mesh>
         <torusKnotGeometry args={[1, 0.3, 128, 16]} />
         <meshStandardMaterial
-          color="#ff00ff"
-          emissive="#ff00ff"
+          color="#a200ff"
+          emissive="#a200ff"
           emissiveIntensity={0.5}
           wireframe
         />
@@ -143,7 +143,7 @@ export default function Hero() {
           transition={{ duration: 1.5, repeat: Infinity }}
           style={{ marginTop: '60px', fontSize: '30px' }}
         >
-          ⬇️
+          <a href="https://www.flaticon.com/free-icons/dropdown-arrow" title="dropdown arrow icons">Dropdown arrow icons created by Taufik - Flaticon</a>
         </motion.div>
       </div>
 
