@@ -1,4 +1,4 @@
-# 🕹️ HARISH KUMAR — Funky Retro Portfolio
+# HARISH KUMAR — Funky Retro Portfolio
 
 A neon-soaked, animation-dense, retro-vibes portfolio built with React + Three.js + Framer Motion.
 
