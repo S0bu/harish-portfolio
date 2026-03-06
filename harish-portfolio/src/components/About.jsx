@@ -18,35 +18,10 @@ export default function About() {
       padding: '80px 20px'
     }}>
       <div style={{ maxWidth: '1000px', width: '100%' }}>
-        <motion.h2
-          className="neon-text"
-          initial={{ x: -200, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ type: 'spring', bounce: 0.4 }}
-          viewport={{ once: true }}
-          style={{
-            fontFamily: "'Bangers', cursive",
-            fontSize: 'clamp(40px, 6vw, 70px)',
-            color: '#00ffff',
-            textAlign: 'center',
-            marginBottom: '40px',
-            letterSpacing: '5px'
-          }}
-        >
           WHO IS THIS GUY?
-        </motion.h2>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
           {/* Character card */}
-          <motion.div
-            className="neon-box"
-            initial={{ rotateY: 90 }}
-            whileInView={{ rotateY: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02, boxShadow: '0 0 30px #00ffff' }}
-            style={{ flex: '1 1 400px', maxWidth: '500px' }}
-          >
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                 👨‍💻
               <h3 style={{
@@ -88,7 +63,6 @@ export default function About() {
                 {'> STATUS: Always shipping projects'}
               </p>
             </div>
-          </motion.div>
 
           {/* Stats */}
           <div style={{
@@ -113,13 +87,6 @@ export default function About() {
                   gap: '15px'
                 }}
               >
-                <motion.span
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                  style={{ fontSize: '40px' }}
-                >
-                  {stat.emoji}
-                </motion.span>
                 <div>
                   <p style={{
                     fontFamily: "'Orbitron', sans-serif",
@@ -155,7 +122,7 @@ export default function About() {
                 color: '#ffff00',
                 marginBottom: '15px'
               }}>
-                ⚔️ CHARACTER STATS
+                CHARACTER STATS
               </p>
               {[
                 { name: 'CODING', val: 95, color: '#39ff14' },
