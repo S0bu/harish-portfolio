@@ -2,9 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const stats = [
-  { emoji: '🌐', label: 'Websites Built', value: '50+' },
-  { emoji: '🎮', label: 'Games Created', value: '15+' },
-  { emoji: '📱', label: 'Android Apps', value: '20+' },
+  { emoji: '🌐', label: 'Websites Built', value: '5+' },
+  { emoji: '🎮', label: 'Games Created', value: '10+' },
+  { emoji: '📱', label: 'Android Apps', value: '2+' },
   { emoji: '☕', label: 'Coffee Consumed', value: '∞' },
 ]
 
@@ -33,7 +33,7 @@ export default function About() {
             letterSpacing: '5px'
           }}
         >
-          WHO IS THIS GUY? 🤔
+          WHO IS THIS GUY?
         </motion.h2>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
@@ -48,13 +48,7 @@ export default function About() {
             style={{ flex: '1 1 400px', maxWidth: '500px' }}
           >
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-              <motion.div
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                style={{ fontSize: '80px', marginBottom: '10px' }}
-              >
                 👨‍💻
-              </motion.div>
               <h3 style={{
                 fontFamily: "'Press Start 2P', cursive",
                 fontSize: '16px',
@@ -88,10 +82,10 @@ export default function About() {
               </p>
               <p style={{ marginTop: '10px' }}>
                 When I'm not coding, I'm probably thinking about coding.
-                Or eating. Mostly coding though. 🍕
+                Or eating. Mostly coding though.
               </p>
               <p style={{ marginTop: '10px', color: '#ffff00' }}>
-                {'> STATUS: Always shipping 🚀'}
+                {'> STATUS: Always shipping projects'}
               </p>
             </div>
           </motion.div>
