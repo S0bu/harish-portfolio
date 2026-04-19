@@ -9,8 +9,8 @@ export default function RetroLoader() {
     const messages = [
       'BOOTING SYSTEM...',
       'LOADING HARISH.EXE...',
-      'INITIALIZING FUNKY MODE...',
-      'ACTIVATING NEON LIGHTS...',
+      'INITIALIZING MODULES...',
+      'ACTIVATING INTERFACE...',
       'DEPLOYING AWESOMENESS...',
       'READY PLAYER ONE!'
     ]
@@ -27,12 +27,12 @@ export default function RetroLoader() {
 
   return (
     <motion.div
-      exit={{ opacity: 0, scale: 1.5 }}
+      exit={{ opacity: 0, scale: 1.4 }}
       transition={{ duration: 0.5 }}
       style={{
         position: 'fixed',
         inset: 0,
-        background: '#000',
+        background: '#040608',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -41,51 +41,61 @@ export default function RetroLoader() {
         fontFamily: "'Press Start 2P', cursive"
       }}
     >
+      {/* Logo mark instead of emoji */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
         style={{
-          fontSize: '60px',
+          width: '64px',
+          height: '64px',
           marginBottom: '30px',
-          filter: 'drop-shadow(0 0 20px #ff00ff)'
+          border: '3px solid var(--accent-primary)',
+          borderTopColor: 'var(--accent-secondary)',
+          borderRadius: '50%',
+          boxShadow: '0 0 20px var(--accent-primary)',
+          filter: 'drop-shadow(0 0 12px var(--accent-primary))'
         }}
-      >
-        🕹️
-      </motion.div>
+      />
+
       <motion.p
         animate={{ opacity: [0.3, 1, 0.3] }}
-        transition={{ duration: 0.5, repeat: Infinity }}
+        transition={{ duration: 0.6, repeat: Infinity }}
         style={{
-          color: '#00ffff',
-          fontSize: '14px',
+          color: 'var(--accent-primary)',
+          fontSize: '11px',
           marginBottom: '30px',
-          textShadow: '0 0 10px #00ffff'
+          textShadow: '0 0 8px var(--accent-primary)',
+          letterSpacing: '2px'
         }}
       >
         {text}
       </motion.p>
+
       <div style={{
         width: '300px',
-        height: '20px',
-        border: '2px solid #00ffff',
-        boxShadow: '0 0 10px #00ffff',
+        height: '16px',
+        border: '1px solid var(--accent-primary)',
+        boxShadow: '0 0 8px var(--accent-primary)',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderRadius: '3px'
       }}>
         <motion.div
           animate={{ width: `${progress}%` }}
           style={{
             height: '100%',
-            background: 'linear-gradient(90deg, #ff00ff, #00ffff, #39ff14)',
-            boxShadow: '0 0 20px #00ffff'
+            background: 'linear-gradient(90deg, var(--accent-secondary), var(--accent-primary), var(--accent-green))',
+            boxShadow: '0 0 16px var(--accent-primary)'
           }}
         />
       </div>
+
       <p style={{
-        color: '#39ff14',
-        fontSize: '10px',
-        marginTop: '10px',
-        textShadow: '0 0 5px #39ff14'
+        color: 'var(--accent-green)',
+        fontSize: '9px',
+        marginTop: '12px',
+        textShadow: '0 0 5px var(--accent-green)',
+        letterSpacing: '1px'
       }}>
         {Math.floor(progress)}%
       </p>

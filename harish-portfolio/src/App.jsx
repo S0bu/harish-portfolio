@@ -16,13 +16,9 @@ import './App.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
-  const [level, setLevel] = useState(0)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-      setLevel(1)
-    }, 3500)
+    const timer = setTimeout(() => setLoading(false), 3500)
     return () => clearTimeout(timer)
   }, [])
 
@@ -40,30 +36,30 @@ function App() {
         >
           <ParticlesBg />
           <Navbar />
-          <LevelBanner level={1} text="LEVEL 1 — THE BEGINNING" />
+          <LevelBanner text="LEVEL 1 — THE BEGINNING" />
           <Hero />
-          <LevelBanner level={2} text="LEVEL 2 — WHO IS HARISH?" />
+          <LevelBanner text="LEVEL 2 — WHO IS HARISH?" />
           <About />
-          <LevelBanner level={3} text="LEVEL 3 — SKILL TREE UNLOCKED" />
+          <LevelBanner text="LEVEL 3 — SKILL TREE UNLOCKED" />
           <Skills />
-          <LevelBanner level={4} text="LEVEL 4 — QUEST LOG" />
+          <LevelBanner text="LEVEL 4 — QUEST LOG" />
           <Projects />
-          <LevelBanner level={5} text="LEVEL 5 — MINI GAMES ARENA" />
+          <LevelBanner text="LEVEL 5 — MINI GAMES ARENA" />
           <div id="games" style={{ padding: '20px' }}>
             <motion.h2
               className="neon-text"
               style={{
                 fontFamily: "'Press Start 2P', cursive",
-                fontSize: 'clamp(18px, 3vw, 32px)',
+                fontSize: 'clamp(16px, 2.5vw, 28px)',
                 textAlign: 'center',
                 marginBottom: '40px',
-                color: '#00ffff'
+                color: 'var(--accent-primary)'
               }}
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               transition={{ type: 'spring', bounce: 0.5 }}
             >
-              🎮 ARCADE ZONE 🎮
+              ARCADE ZONE
             </motion.h2>
             <div style={{
               display: 'flex',
@@ -77,7 +73,7 @@ function App() {
               <SnakeGame />
             </div>
           </div>
-          <LevelBanner level={6} text="LEVEL 6 — FINAL BOSS: CREDITS" />
+          <LevelBanner text="LEVEL 6 — FINAL BOSS: CREDITS" />
           <Credits />
           <Footer />
         </motion.div>
@@ -86,7 +82,7 @@ function App() {
   )
 }
 
-function LevelBanner({ level, text }) {
+function LevelBanner({ text }) {
   return (
     <motion.div
       initial={{ scaleX: 0 }}
@@ -94,11 +90,11 @@ function LevelBanner({ level, text }) {
       transition={{ duration: 0.8, type: 'spring' }}
       viewport={{ once: true }}
       style={{
-        background: 'linear-gradient(90deg, transparent, rgba(255,0,255,0.3), rgba(0,255,255,0.3), transparent)',
-        padding: '20px',
+        background: 'linear-gradient(90deg, transparent, rgba(79,195,247,0.12), rgba(206,147,216,0.12), transparent)',
+        padding: '18px',
         textAlign: 'center',
-        borderTop: '2px solid #ff00ff',
-        borderBottom: '2px solid #00ffff',
+        borderTop: '1px solid rgba(79,195,247,0.4)',
+        borderBottom: '1px solid rgba(206,147,216,0.4)',
         margin: '0',
         position: 'relative',
         overflow: 'hidden'
@@ -106,16 +102,16 @@ function LevelBanner({ level, text }) {
     >
       <motion.p
         animate={{ opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 2.5, repeat: Infinity }}
         style={{
           fontFamily: "'Press Start 2P', cursive",
-          fontSize: 'clamp(10px, 2vw, 18px)',
-          color: '#ffff00',
-          textShadow: '0 0 10px #ffff00, 0 0 20px #ffff00',
+          fontSize: 'clamp(9px, 1.5vw, 15px)',
+          color: 'var(--accent-amber)',
+          textShadow: '0 0 8px var(--accent-amber)',
           letterSpacing: '3px'
         }}
       >
-        ★ {text} ★
+        // {text} //
       </motion.p>
     </motion.div>
   )

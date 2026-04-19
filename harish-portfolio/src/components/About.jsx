@@ -2,10 +2,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const stats = [
-  { emoji: '🌐', label: 'Websites Built', value: '5+' },
-  { emoji: '🎮', label: 'Games Created', value: '10+' },
-  { emoji: '📱', label: 'Android Apps', value: '2+' },
-  { emoji: '☕', label: 'Coffee Consumed', value: '∞' },
+  { label: 'Websites Built', value: '5+' },
+  { label: 'Games Created', value: '10+' },
+  { label: 'Android Apps', value: '2+' },
+  { label: 'Coffee Consumed', value: 'Inf' },
 ]
 
 export default function About() {
@@ -18,25 +18,64 @@ export default function About() {
       padding: '80px 20px'
     }}>
       <div style={{ maxWidth: '1000px', width: '100%' }}>
+        <motion.h2
+          className="neon-text"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: 'spring' }}
+          viewport={{ once: true }}
+          style={{
+            fontFamily: "'Bangers', cursive",
+            fontSize: 'clamp(36px, 6vw, 65px)',
+            color: 'var(--accent-primary)',
+            textAlign: 'center',
+            marginBottom: '50px',
+            letterSpacing: '5px'
+          }}
+        >
           WHO IS THIS GUY?
+        </motion.h2>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
           {/* Character card */}
+          <motion.div
+            className="neon-box"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: 'spring' }}
+            viewport={{ once: true }}
+            style={{ flex: '1 1 300px', maxWidth: '400px' }}
+          >
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                👨‍💻
+              <div style={{
+                width: '80px', height: '80px',
+                margin: '0 auto 16px',
+                border: '2px solid var(--accent-primary)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px var(--accent-primary)',
+                fontFamily: "'Orbitron', sans-serif",
+                fontSize: '22px',
+                color: 'var(--accent-primary)',
+                fontWeight: 700
+              }}>
+                HK
+              </div>
               <h3 style={{
                 fontFamily: "'Press Start 2P', cursive",
-                fontSize: '16px',
-                color: '#ffff00',
-                textShadow: '0 0 10px #ffff00'
+                fontSize: '13px',
+                color: 'var(--accent-amber)',
+                textShadow: '0 0 8px var(--accent-amber)'
               }}>
                 HARISH KUMAR
               </h3>
               <p style={{
                 fontFamily: "'VT323', monospace",
-                fontSize: '20px',
-                color: '#ff00ff',
-                marginTop: '5px'
+                fontSize: '18px',
+                color: 'var(--accent-secondary)',
+                marginTop: '6px'
               }}>
                 aka "The Digital Craftsman"
               </p>
@@ -44,25 +83,25 @@ export default function About() {
 
             <div style={{
               fontFamily: "'VT323', monospace",
-              fontSize: '20px',
+              fontSize: '19px',
               lineHeight: 1.8,
               color: '#ccc'
             }}>
-              <p style={{ color: '#39ff14' }}>{'// Character Bio'}</p>
+              <p style={{ color: 'var(--accent-green)' }}>{'// Character Bio'}</p>
               <p>
                 A passionate creator who turns caffeine into code.
-                I build <span style={{ color: '#00ffff' }}>websites</span> that pop,
-                <span style={{ color: '#ff00ff' }}> games</span> that hook, and
-                <span style={{ color: '#39ff14' }}> Android apps</span> that rock.
+                I build <span style={{ color: 'var(--accent-primary)' }}>websites</span> that pop,
+                <span style={{ color: 'var(--accent-secondary)' }}> games</span> that hook, and
+                <span style={{ color: 'var(--accent-green)' }}> Android apps</span> that rock.
               </p>
               <p style={{ marginTop: '10px' }}>
-                When I'm not coding, I'm probably thinking about coding.
-                Or eating. Mostly coding though.
+                When not coding, I am probably thinking about coding. Or eating. Mostly coding though.
               </p>
-              <p style={{ marginTop: '10px', color: '#ffff00' }}>
+              <p style={{ marginTop: '10px', color: 'var(--accent-amber)' }}>
                 {'> STATUS: Always shipping projects'}
               </p>
             </div>
+          </motion.div>
 
           {/* Stats */}
           <div style={{
@@ -80,20 +119,16 @@ export default function About() {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: i * 0.15, type: 'spring' }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, x: 10 }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '15px'
-                }}
+                whileHover={{ scale: 1.04, x: 8 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '15px' }}
               >
                 <div>
                   <p style={{
                     fontFamily: "'Orbitron', sans-serif",
-                    fontSize: '28px',
-                    color: '#00ffff',
+                    fontSize: '26px',
+                    color: 'var(--accent-primary)',
                     fontWeight: 'bold',
-                    textShadow: '0 0 10px #00ffff'
+                    textShadow: '0 0 8px var(--accent-primary)'
                   }}>
                     {stat.value}
                   </p>
@@ -108,7 +143,6 @@ export default function About() {
               </motion.div>
             ))}
 
-            {/* Fun RPG stats */}
             <motion.div
               className="neon-box"
               initial={{ scale: 0 }}
@@ -119,16 +153,16 @@ export default function About() {
               <p style={{
                 fontFamily: "'Press Start 2P', cursive",
                 fontSize: '10px',
-                color: '#ffff00',
+                color: 'var(--accent-amber)',
                 marginBottom: '15px'
               }}>
                 CHARACTER STATS
               </p>
               {[
-                { name: 'CODING', val: 95, color: '#39ff14' },
-                { name: 'CREATIVITY', val: 90, color: '#ff00ff' },
-                { name: 'DEBUGGING', val: 85, color: '#00ffff' },
-                { name: 'COFFEE INTAKE', val: 100, color: '#ffff00' },
+                { name: 'CODING', val: 95, color: 'var(--accent-green)' },
+                { name: 'CREATIVITY', val: 90, color: 'var(--accent-secondary)' },
+                { name: 'DEBUGGING', val: 85, color: 'var(--accent-primary)' },
+                { name: 'COFFEE INTAKE', val: 100, color: 'var(--accent-amber)' },
               ].map((s, i) => (
                 <div key={s.name} style={{ marginBottom: '10px' }}>
                   <div style={{
@@ -143,8 +177,8 @@ export default function About() {
                     <span>{s.val}/100</span>
                   </div>
                   <div style={{
-                    height: '8px',
-                    background: 'rgba(255,255,255,0.1)',
+                    height: '7px',
+                    background: 'rgba(255,255,255,0.08)',
                     borderRadius: '4px',
                     overflow: 'hidden'
                   }}>
@@ -157,7 +191,7 @@ export default function About() {
                         height: '100%',
                         background: s.color,
                         borderRadius: '4px',
-                        boxShadow: `0 0 10px ${s.color}`
+                        boxShadow: `0 0 8px ${s.color}`
                       }}
                     />
                   </div>

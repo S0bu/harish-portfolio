@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Text3D, Center, Float, Stars, OrbitControls } from '@react-three/drei'
+import { Float, Stars, OrbitControls } from '@react-three/drei'
 
 function SpinningLogo() {
   const ref = useRef()
@@ -14,18 +14,18 @@ function SpinningLogo() {
       <mesh>
         <torusKnotGeometry args={[1, 0.3, 128, 16]} />
         <meshStandardMaterial
-          color="#a200ff"
-          emissive="#a200ff"
-          emissiveIntensity={0.5}
+          color="#4fc3f7"
+          emissive="#4fc3f7"
+          emissiveIntensity={0.4}
           wireframe
         />
       </mesh>
       <mesh position={[0, 0, 0]}>
         <icosahedronGeometry args={[0.6, 1]} />
         <meshStandardMaterial
-          color="#00ffff"
-          emissive="#00ffff"
-          emissiveIntensity={0.8}
+          color="#ce93d8"
+          emissive="#ce93d8"
+          emissiveIntensity={0.6}
           wireframe
         />
       </mesh>
@@ -35,19 +35,19 @@ function SpinningLogo() {
 
 function FloatingShapes() {
   const shapes = [
-    { pos: [-3, 2, -2], color: '#39ff14', geo: 'box' },
-    { pos: [3, -1, -3], color: '#ffff00', geo: 'octahedron' },
-    { pos: [-2, -2, -1], color: '#ff6600', geo: 'dodecahedron' },
-    { pos: [2, 2, -2], color: '#ff00ff', geo: 'tetrahedron' },
+    { pos: [-3, 2, -2], color: '#80cbc4', geo: 'box' },
+    { pos: [3, -1, -3], color: '#ffd54f', geo: 'octahedron' },
+    { pos: [-2, -2, -1], color: '#ff8a65', geo: 'dodecahedron' },
+    { pos: [2, 2, -2], color: '#9575cd', geo: 'tetrahedron' },
   ]
   return shapes.map((s, i) => (
-    <Float key={i} speed={2 + i} rotationIntensity={2} floatIntensity={2}>
+    <Float key={i} speed={2 + i} rotationIntensity={1.5} floatIntensity={1.5}>
       <mesh position={s.pos}>
         {s.geo === 'box' && <boxGeometry args={[0.5, 0.5, 0.5]} />}
         {s.geo === 'octahedron' && <octahedronGeometry args={[0.4]} />}
         {s.geo === 'dodecahedron' && <dodecahedronGeometry args={[0.4]} />}
         {s.geo === 'tetrahedron' && <tetrahedronGeometry args={[0.4]} />}
-        <meshStandardMaterial color={s.color} emissive={s.color} emissiveIntensity={0.5} wireframe />
+        <meshStandardMaterial color={s.color} emissive={s.color} emissiveIntensity={0.4} wireframe />
       </mesh>
     </Float>
   ))
@@ -65,20 +65,18 @@ export default function Hero() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* 3D Background */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Canvas camera={{ position: [0, 0, 5] }}>
           <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} color="#ff00ff" intensity={1} />
-          <pointLight position={[-10, -10, -10]} color="#00ffff" intensity={1} />
-          <Stars radius={100} depth={50} count={3000} factor={4} fade speed={2} />
+          <pointLight position={[10, 10, 10]} color="#ce93d8" intensity={1} />
+          <pointLight position={[-10, -10, -10]} color="#4fc3f7" intensity={1} />
+          <Stars radius={100} depth={50} count={3000} factor={4} fade speed={1.5} />
           <SpinningLogo />
           <FloatingShapes />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.4} />
         </Canvas>
       </div>
 
-      {/* Content overlay */}
       <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '20px' }}>
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
@@ -90,11 +88,11 @@ export default function Hero() {
             style={{
               fontFamily: "'Bangers', cursive",
               fontSize: 'clamp(50px, 10vw, 120px)',
-              background: 'linear-gradient(45deg, #ff00ff, #00ffff, #39ff14, #ffff00, #ff00ff)',
+              background: 'linear-gradient(45deg, var(--accent-secondary), var(--accent-primary), var(--accent-green), var(--accent-amber), var(--accent-secondary))',
               backgroundSize: '300% 300%',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              animation: 'glitchColor 0.3s infinite, gradientShift 3s ease infinite',
+              animation: 'glitchColor 0.3s infinite, gradientShift 4s ease infinite',
               letterSpacing: '5px',
               lineHeight: 1.1
             }}
@@ -107,10 +105,11 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             style={{
               fontFamily: "'Orbitron', sans-serif",
-              fontSize: 'clamp(16px, 3vw, 30px)',
-              color: '#ff00ff',
-              textShadow: '0 0 10px #ff00ff, 0 0 20px #ff00ff',
-              marginTop: '10px'
+              fontSize: 'clamp(14px, 2.5vw, 26px)',
+              color: 'var(--accent-secondary)',
+              textShadow: '0 0 10px var(--accent-secondary)',
+              marginTop: '10px',
+              letterSpacing: '8px'
             }}
           >
             KUMAR
@@ -133,17 +132,33 @@ export default function Hero() {
           style={{ marginTop: '40px', display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <a href="#projects" className="retro-btn">VIEW QUESTS</a>
-          <a href="#games" className="retro-btn" style={{ borderColor: '#ff00ff', color: '#ff00ff', textShadow: '0 0 10px #ff00ff', boxShadow: '0 0 10px #ff00ff, inset 0 0 10px rgba(255,0,255,0.1)' }}>
+          <a
+            href="#games"
+            className="retro-btn"
+            style={{
+              borderColor: 'var(--accent-secondary)',
+              color: 'var(--accent-secondary)',
+              textShadow: '0 0 8px var(--accent-secondary)',
+              boxShadow: '0 0 8px rgba(206,147,216,0.25), inset 0 0 8px rgba(206,147,216,0.05)'
+            }}
+          >
             PLAY GAMES
           </a>
         </motion.div>
 
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          style={{ marginTop: '60px', fontSize: '30px' }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity }}
+          style={{ marginTop: '60px' }}
         >
-          <a href="https://www.flaticon.com/free-icons/dropdown-arrow" title="dropdown arrow icons">Dropdown arrow icons created by Taufik - Flaticon</a>
+          <span style={{
+            fontFamily: "'Press Start 2P', cursive",
+            fontSize: '10px',
+            color: 'var(--text-muted)',
+            letterSpacing: '2px'
+          }}>
+            SCROLL DOWN
+          </span>
         </motion.div>
       </div>
 
@@ -168,9 +183,7 @@ function RoleTyper({ roles }) {
     const timeout = setTimeout(() => {
       if (!deleting) {
         setText(current.slice(0, text.length + 1))
-        if (text.length === current.length) {
-          setTimeout(() => setDeleting(true), 1500)
-        }
+        if (text.length === current.length) setTimeout(() => setDeleting(true), 1500)
       } else {
         setText(current.slice(0, text.length - 1))
         if (text.length === 0) {
@@ -186,8 +199,8 @@ function RoleTyper({ roles }) {
     <p style={{
       fontFamily: "'VT323', monospace",
       fontSize: 'clamp(20px, 4vw, 40px)',
-      color: '#39ff14',
-      textShadow: '0 0 10px #39ff14, 0 0 20px #39ff14'
+      color: 'var(--accent-green)',
+      textShadow: '0 0 8px var(--accent-green)'
     }}>
       {'> '}{text}<span style={{ animation: 'blink 0.7s infinite' }}>_</span>
       <style>{`@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }`}</style>

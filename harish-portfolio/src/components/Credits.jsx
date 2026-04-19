@@ -25,17 +25,14 @@ export default function Credits() {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '80px 20px',
-      background: 'linear-gradient(180deg, transparent, rgba(0,0,0,0.9))',
+      background: 'linear-gradient(180deg, transparent, rgba(4,6,8,0.95))',
       overflow: 'hidden',
       position: 'relative'
     }}>
-      {/* Film grain overlay */}
       <div style={{
-        position: 'absolute',
-        inset: 0,
+        position: 'absolute', inset: 0,
         background: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.05\'/%3E%3C/svg%3E")',
-        pointerEvents: 'none',
-        opacity: 0.3
+        pointerEvents: 'none', opacity: 0.25
       }} />
 
       <motion.h2
@@ -45,9 +42,9 @@ export default function Credits() {
         viewport={{ once: true }}
         style={{
           fontFamily: "'Bangers', cursive",
-          fontSize: 'clamp(40px, 6vw, 70px)',
-          color: '#ffff00',
-          textShadow: '0 0 20px #ffff00, 0 0 40px #ffff00',
+          fontSize: 'clamp(40px, 6vw, 65px)',
+          color: 'var(--accent-amber)',
+          textShadow: '0 0 16px var(--accent-amber)',
           marginBottom: '10px',
           letterSpacing: '5px'
         }}
@@ -56,54 +53,55 @@ export default function Credits() {
       </motion.h2>
 
       <motion.p
-        animate={{ opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        animate={{ opacity: [0.4, 1, 0.4] }}
+        transition={{ duration: 2.5, repeat: Infinity }}
         style={{
           fontFamily: "'VT323', monospace",
           fontSize: '20px',
-          color: '#aaa',
-          marginBottom: '40px'
+          color: '#666',
+          marginBottom: '40px',
+          letterSpacing: '2px'
         }}
       >
         A HARISH KUMAR PRODUCTION
       </motion.p>
 
-      <div style={{
-        maxWidth: '500px',
-        width: '100%'
-      }}>
+      <div style={{ maxWidth: '500px', width: '100%' }}>
         {credits.map((c, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -80 : 80 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.1, type: 'spring' }}
+            transition={{ delay: i * 0.08, type: 'spring' }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05, x: 10 }}
+            whileHover={{ scale: 1.04, x: 8 }}
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               padding: '12px 20px',
-              borderBottom: '1px solid #333',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
               alignItems: 'center'
             }}
           >
             <span style={{
               fontFamily: "'VT323', monospace",
               fontSize: '18px',
-              color: '#888',
-              textTransform: 'uppercase'
+              color: '#555',
+              textTransform: 'uppercase',
+              letterSpacing: '1px'
             }}>
               {c.role}
             </span>
             <motion.span
-              animate={c.name.includes('STACK') ? { color: ['#ff00ff', '#00ffff', '#39ff14'] } : {}}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={c.name.includes('STACK') ? {
+                color: ['var(--accent-secondary)', 'var(--accent-primary)', 'var(--accent-green)']
+              } : {}}
+              transition={{ duration: 2.5, repeat: Infinity }}
               style={{
                 fontFamily: "'Press Start 2P', cursive",
-                fontSize: '10px',
-                color: '#fff',
-                textShadow: '0 0 5px #ff00ff'
+                fontSize: '9px',
+                color: '#ddd',
+                textShadow: '0 0 5px var(--accent-secondary)'
               }}
             >
               {c.name}
@@ -120,13 +118,13 @@ export default function Credits() {
         style={{ marginTop: '50px', textAlign: 'center' }}
       >
         <motion.p
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={{ scale: [1, 1.08, 1] }}
+          transition={{ duration: 2.5, repeat: Infinity }}
           style={{
             fontFamily: "'Press Start 2P', cursive",
-            fontSize: '12px',
-            color: '#39ff14',
-            textShadow: '0 0 15px #39ff14',
+            fontSize: '11px',
+            color: 'var(--accent-green)',
+            textShadow: '0 0 12px var(--accent-green)',
             marginBottom: '10px'
           }}
         >
@@ -135,7 +133,7 @@ export default function Credits() {
         <p style={{
           fontFamily: "'VT323', monospace",
           fontSize: '18px',
-          color: '#666'
+          color: '#444'
         }}>
           (Several keyboards were, though)
         </p>
