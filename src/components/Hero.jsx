@@ -1,37 +1,7 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import { Float, Stars, OrbitControls } from '@react-three/drei'
-
-function SpinningLogo() {
-  const ref = useRef()
-  useFrame((state) => {
-    ref.current.rotation.y = state.clock.elapsedTime * 0.5
-    ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.2
-  })
-  return (
-    <group ref={ref}>
-      <mesh>
-        <torusKnotGeometry args={[1, 0.3, 128, 16]} />
-        <meshStandardMaterial
-          color="#4fc3f7"
-          emissive="#4fc3f7"
-          emissiveIntensity={0.4}
-          wireframe
-        />
-      </mesh>
-      <mesh position={[0, 0, 0]}>
-        <icosahedronGeometry args={[0.6, 1]} />
-        <meshStandardMaterial
-          color="#ce93d8"
-          emissive="#ce93d8"
-          emissiveIntensity={0.6}
-          wireframe
-        />
-      </mesh>
-    </group>
-  )
-}
 
 function FloatingShapes() {
   const shapes = [
@@ -71,7 +41,6 @@ export default function Hero() {
           <pointLight position={[10, 10, 10]} color="#ce93d8" intensity={1} />
           <pointLight position={[-10, -10, -10]} color="#4fc3f7" intensity={1} />
           <Stars radius={100} depth={50} count={3000} factor={4} fade speed={1.5} />
-          <SpinningLogo />
           <FloatingShapes />
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.4} />
         </Canvas>

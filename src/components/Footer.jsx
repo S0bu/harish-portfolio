@@ -1,7 +1,16 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Footer() {
+  const [showPopup, setShowPopup] = useState(false)
+  const [copiedMessage, setCopiedMessage] = useState(false)
+
+  const handleEmailCopy = (e) => {
+    e.preventDefault()
+    navigator.clipboard.writeText('harish.memo@gmail.com')
+    setCopiedMessage(true)
+    setTimeout(() => setCopiedMessage(false), 2000)
+  }
   return (
     <footer style={{
       padding: '40px 20px',
@@ -52,10 +61,29 @@ export default function Footer() {
       </motion.div>
 
       <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginBottom: '20px', flexWrap: 'wrap' }}>
-        {['GitHub', 'LinkedIn', 'Twitter', 'Email'].map((link) => (
+        {[
+          { label: 'GitHub', href: 'https://github.com/S0bu/' },
+          { label: 'LinkedIn', href: 'https://linkedin.com/in/harish-ku/' },
+          { label: 'Twitter', href: '#', onClick: () => setShowPopup(true), onAuxClick: () => setShowPopup(true) },
+          { label: 'Email', href: '#', onClick: handleEmailCopy, onAuxClick: handleEmailCopy }
+        ].map((link) => (
           <motion.a
-            key={link}
-            href="#"
+            key={link.label}
+            href={link.href}
+            onClick={(e) => {
+              if (link.onClick) {
+                e.preventDefault()
+                link.onClick(e)
+              }
+            }}
+            onAuxClick={(e) => {
+              if (link.onAuxClick) {
+                e.preventDefault()
+                link.onAuxClick(e)
+              } else if (link.onClick && e.button === 1) {
+                e.preventDefault()
+              }
+            }}
             whileHover={{ scale: 1.15, color: 'var(--accent-primary)' }}
             style={{
               fontFamily: "'VT323', monospace",
@@ -66,7 +94,7 @@ export default function Footer() {
               letterSpacing: '1px'
             }}
           >
-            {link}
+            {link.label}
           </motion.a>
         ))}
       </div>
@@ -80,19 +108,90 @@ export default function Footer() {
         (c) 2026 HARISH KUMAR — BUILT WITH PASSION AND CAFFEINE
       </p>
 
-      <motion.p
-        animate={{ opacity: [0.2, 0.6, 0.2] }}
-        transition={{ duration: 3.5, repeat: Infinity }}
-        style={{
-          fontFamily: "'Press Start 2P', cursive",
-          fontSize: '7px',
-          color: '#2a2a2a',
-          marginTop: '12px',
-          letterSpacing: '1px'
-        }}
-      >
-        KONAMI CODE DOES NOTHING HERE... OR DOES IT?
-      </motion.p>
+      <AnimatePresence>
+        {copiedMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            style={{
+              position: 'fixed',
+              bottom: '30px',
+              right: '30px',
+              background: 'rgba(79,195,247,0.9)',
+              color: '#000',
+              padding: '12px 20px',
+              borderRadius: '4px',
+              fontFamily: "'VT323', monospace",
+              fontSize: '14px',
+              fontWeight: 'bold',
+              zIndex: 9998,
+              boxShadow: '0 0 15px rgba(79,195,247,0.5)'
+            }}
+          >
+            Copied Email-ID to clipboard!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(0, 0, 0, 0.7)',
+              zIndex: 9999
+            }}
+            onClick={() => setShowPopup(false)}
+          >
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                background: 'rgba(8,12,20,0.95)',
+                border: '2px solid var(--accent-primary)',
+                borderRadius: '8px',
+                padding: '30px',
+                textAlign: 'center',
+                boxShadow: '0 0 20px rgba(79,195,247,0.3)',
+                minWidth: '300px'
+              }}
+            >
+              <p style={{
+                fontFamily: "'VT323', monospace",
+                fontSize: '20px',
+                color: 'var(--accent-primary)',
+                marginBottom: '20px',
+                letterSpacing: '1px'
+              }}>
+                Sorry, does not exist
+              </p>
+              <button
+                onClick={() => setShowPopup(false)}
+                style={{
+                  background: 'var(--accent-primary)',
+                  border: 'none',
+                  color: '#000',
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontFamily: "'VT323', monospace",
+                  fontSize: '14px',
+                  fontWeight: 'bold'
+                }}
+              >
+                OK
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   )
 }
